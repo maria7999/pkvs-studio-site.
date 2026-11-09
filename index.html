@@ -20,7 +20,24 @@ a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;text-decoration:none}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--texto)}
+.marca{position:relative;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:3px;overflow:hidden;background:linear-gradient(135deg,#b060ff,#6d22c8 58%,#f5a623 135%);box-shadow:0 0 0 1px #ffffff2e inset,0 6px 22px #8a35d99a;transition:transform .25s,box-shadow .25s}
+.marca:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 35%,#ffffff55 50%,transparent 65%);transform:translateX(-120%);transition:transform .6s}
+.marca b{width:4px;border-radius:3px;background:#fff;animation:eq 1.4s ease-in-out infinite}
+.marca b:nth-child(1){height:14px;animation-delay:-.3s}
+.marca b:nth-child(2){height:26px;animation-delay:-.8s}
+.marca b:nth-child(3){height:34px;animation-delay:-.1s}
+.marca b:nth-child(4){height:22px;animation-delay:-.6s}
+.marca b:nth-child(5){height:12px;animation-delay:-1s}
+@keyframes eq{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.logo:hover .marca{transform:rotate(-6deg) scale(1.08);box-shadow:0 0 0 1px #ffffff40 inset,0 8px 30px #b060ffcc}
+.logo:hover .marca:after{transform:translateX(120%)}
+.logo:hover .marca b{animation-duration:.5s}
+.nome{display:flex;flex-direction:column;line-height:1}
+.nome strong{font-size:26px;letter-spacing:.01em;background:linear-gradient(90deg,#fff 0,#d9b8ff 50%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;transition:background-position .6s}
+.nome small{font-size:11px;font-weight:700;letter-spacing:.46em;color:var(--ambar);margin-top:5px}
+.logo:hover .nome strong{background-position:100% 0}
+@media (prefers-reduced-motion:reduce){.marca b{animation:none}}
 .logo i{width:36px;height:36px;border-radius:50%;background:linear-gradient(#b04bff,#6d22c8);border:3px solid #ecbeff;display:grid;place-items:center;font:700 12px/1 "Bahnschrift",sans-serif;font-style:normal;color:#fff;box-shadow:0 0 18px #8a35d988}
 header nav a{margin-left:22px;color:var(--suave);text-decoration:none;font-size:15px}
 header nav a:hover{color:var(--texto)}
@@ -160,11 +177,12 @@ footer{border-top:1px solid var(--linha);padding:30px 0 60px;color:var(--suave);
 #pedido .acoes{display:flex;flex-wrap:wrap;gap:10px}
 button.btn{font:inherit;cursor:pointer}
 </style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b060ff'/%3E%3Cstop offset='.6' stop-color='%236d22c8'/%3E%3Cstop offset='1' stop-color='%23f5a623'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cg fill='%23fff'%3E%3Crect x='10' y='24' width='6' height='16' rx='3'/%3E%3Crect x='20' y='14' width='6' height='36' rx='3'/%3E%3Crect x='30' y='8' width='6' height='48' rx='3'/%3E%3Crect x='40' y='18' width='6' height='28' rx='3'/%3E%3Crect x='50' y='26' width='6' height='12' rx='3'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
 <div class="wrap">
   <header>
-    <a class="logo" href="#"><i>PK</i>PKVS Studio</a>
+    <a class="logo" href="#" aria-label="PKVS Studio, voltar ao topo"><span class="marca" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span><span class="nome"><strong>PKVS</strong><small>STUDIO</small></span></a>
     <nav><a href="#funcoes">O que faz</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a></nav>
   </header>
 

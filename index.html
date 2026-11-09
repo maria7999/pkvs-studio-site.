@@ -61,7 +61,7 @@ h2{font-size:clamp(26px,4vw,36px);margin:0 0 8px;line-height:1.15}
 .passos li:before{content:counter(p);font-weight:700;color:var(--roxo2);font-size:22px;display:block}
 .passos h3{margin:4px 0;font-size:18px}
 .passos p{margin:0;color:var(--suave);font-size:16px}
-.planos{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px}
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1040px}
 .plano{background:var(--painel);border:1px solid var(--linha);border-radius:10px;padding:28px}
 .plano.destaque{border:2px solid var(--roxo)}
 .plano h3{margin:0;font-size:20px}
@@ -120,7 +120,7 @@ footer{border-top:1px solid var(--linha);padding:30px 0 50px;color:var(--suave);
   <h2>Como começar</h2>
   <p class="lead">Do pagamento ao primeiro VS, sem instalar plugin.</p>
   <ol class="passos">
-    <li><h3>Escolha um plano</h3><p>Pague e receba a sua key por e-mail na hora.</p></li>
+    <li><h3>Escolha um plano</h3><p>Pague e receba a sua key pelo WhatsApp.</p></li>
     <li><h3>Instale</h3><p>Extraia o arquivo e abra o INICIAR. O REAPER abre com a bolinha PK na tela.</p></li>
     <li><h3>Ative</h3><p>Clique na bolinha, cole a key e comece a usar.</p></li>
   </ol>
@@ -128,13 +128,19 @@ footer{border-top:1px solid var(--linha);padding:30px 0 50px;color:var(--suave);
 
 <section id="planos"><div class="wrap">
   <h2>Planos</h2>
-  <p class="lead">Os dois têm todas as funções. A diferença é só o tempo de uso.</p>
+  <p class="lead">Os três têm todas as funções. A diferença é só o tempo de uso.</p>
   <div class="planos">
     <div class="plano">
       <h3>Mensal</h3>
       <div class="preco"><span id="precoMensal">—</span> <small>/ mês</small></div>
       <p>Uso liberado por 30 dias a partir da ativação da key.</p>
       <a class="btn vazio" id="comprarMensal" href="#">Comprar mensal</a>
+    </div>
+    <div class="plano">
+      <h3>Semestral</h3>
+      <div class="preco"><span id="precoSemestral">—</span> <small>/ 6 meses</small></div>
+      <p>Uso liberado por 6 meses a partir da ativação da key.</p>
+      <a class="btn vazio" id="comprarSemestral" href="#">Comprar semestral</a>
     </div>
     <div class="plano destaque">
       <h3>Anual</h3>
@@ -154,9 +160,11 @@ footer{border-top:1px solid var(--linha);padding:30px 0 50px;color:var(--suave);
 <script>
 /* ===== EDITE AQUI: preços, links e contato ===== */
 const CONFIG = {
-  precoMensal: "R$ 80,00",       // ex.: "R$ 29,90"
+  precoMensal: "R$ 79,99",       // ex.: "R$ 29,90"
+  precoSemestral: "R$ 299,00",
   precoAnual:  "R$ 500,00",       // ex.: "R$ 249,00"
   linkMensal:  "",       // link de compra do plano mensal
+  linkSemestral: "",     // link de compra do plano semestral
   linkAnual:   "",       // link de compra do plano anual
   linkDownload:"",       // link para baixar o app
   contato:     "https://wa.me/5533998586095"        // ex.: "https://wa.me/55DDDNUMERO"
@@ -170,8 +178,10 @@ function ligar(id, url, rotulo){
   else { el.setAttribute("aria-disabled","true"); if(rotulo) el.textContent = rotulo; }
 }
 $("precoMensal").textContent = CONFIG.precoMensal || "Em breve";
+$("precoSemestral").textContent = CONFIG.precoSemestral || "Em breve";
 $("precoAnual").textContent  = CONFIG.precoAnual  || "Em breve";
 ligar("comprarMensal", CONFIG.linkMensal, "Em breve");
+ligar("comprarSemestral", CONFIG.linkSemestral, "Em breve");
 ligar("comprarAnual",  CONFIG.linkAnual,  "Em breve");
 ligar("baixar", CONFIG.linkDownload, "Download em breve");
 if(CONFIG.contato) $("contatoLink").href = CONFIG.contato; else $("contatoLink").removeAttribute("href");

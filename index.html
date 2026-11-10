@@ -284,7 +284,7 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
 
 <section id="funcoes"><div class="wrap">
   <h2>O que ele faz por você</h2>
-  <p class="lead">Tudo dentro do REAPER, em um painel que abre quando você clica na bolinha PK.</p>
+  <p class="lead">Tudo dentro do REAPER, em um painel que abre quando você clica na bolinha PK (no Mac, o painel já abre direto).</p>
   <ul class="funcoes">
     <li><h3>Importa a música</h3><p>Aponte a pasta com os áudios (WAV, MP3, FLAC, AIF, OGG, M4A) e ele coloca cada faixa no lugar, com marcador e region.</p></li>
     <li><h3>Organiza por instrumento</h3><p>Bateria e drums ficam na mesma track, baixo e bass também. Click e voz guia ganham a pasta deles.</p></li>
@@ -300,7 +300,7 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
   <p class="lead">Do pagamento ao primeiro VS, sem instalar plugin.</p>
   <ol class="passos">
     <li><h3>Escolha um plano</h3><p>Pague e a sua key aparece na tela, junto com o download do programa.</p></li>
-    <li><h3>Instale</h3><p>Extraia o arquivo e abra o INICIAR. O REAPER abre com a bolinha PK na tela.</p></li>
+    <li><h3>Instale</h3><p>Extraia o arquivo e abra o INICIAR (INICIAR.bat no Windows, INICIAR.command no Mac). No Windows o REAPER abre com a bolinha PK na tela; no Mac o painel abre direto.</p></li>
     <li><h3>Ative</h3><p>Clique na bolinha, cole a key e comece a usar.</p></li>
   </ol>
 </div></section>
@@ -340,8 +340,8 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
   <p class="lead">O básico antes de comprar.</p>
   <details><summary>Como recebo a key?</summary><p>Assim que o pagamento for confirmado, a sua key aparece na tela e o download é liberado na hora.</p></details>
   <details><summary>Em quantos computadores posso usar?</summary><p>Cada key vale para um computador.</p></details>
-  <details><summary>Preciso instalar algum plugin?</summary><p>Não. Extraia o arquivo e abra o INICIAR. O REAPER abre com a bolinha PK na tela.</p></details>
-  <details><summary>Funciona em qual sistema?</summary><p>O PKVS Studio funciona no REAPER para Windows.</p></details>
+  <details><summary>Preciso instalar algum plugin?</summary><p>Não. Extraia o arquivo e abra o INICIAR (INICIAR.bat no Windows, INICIAR.command no Mac). No Windows o REAPER abre com a bolinha PK na tela; no Mac o painel abre direto.</p></details>
+  <details><summary>Funciona em qual sistema?</summary><p>O PKVS Studio funciona no REAPER para Windows e para Mac (MacBook, iMac e Mac mini). No Windows, é só abrir o INICIAR.bat. No Mac, abra o INICIAR.command (o passo a passo vem dentro do ZIP).</p></details>
 </div></section>
 
 <section id="suporte"><div class="wrap">
@@ -357,7 +357,7 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
 <footer id="contato"><div class="wrap">
   Dúvidas ou suporte: <a id="contatoLink" href="#">fale com a gente</a> ou veja a seção <a href="#suporte">Suporte</a>.
   <br><a class="discord-link" href="https://discord.gg/UNNhRXbRR" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Entrar no servidor do Discord</a>
-  <br>PKVS Studio funciona no REAPER para Windows.
+  <br>PKVS Studio funciona no REAPER para Windows e Mac.
 </div></footer>
 <a class="zap" id="zap" href="#">Falar no WhatsApp</a>
 
@@ -460,7 +460,7 @@ function mostrarKey(chave){
   if(CONFIG.linkDownload) acoes.push({ rotulo: "Baixar o PKVS Studio", href: CONFIG.linkDownload, novaAba: true, vazio: true });
   acoes.push(fechar);
   const download = CONFIG.linkDownload ? "" : " O link do download chega pelo WhatsApp.";
-  painel("Pagamento confirmado", "Esta é a sua key. Ela vale para um computador. Abra o PKVS Studio, clique na bolinha PK e cole a key. Para ver esta tela de novo, abra este mesmo endereço." + download,
+  painel("Pagamento confirmado", "Esta é a sua key. Ela vale para um computador. Abra o PKVS Studio, clique na bolinha PK (no Mac o painel já abre) e cole a key. Para ver esta tela de novo, abra este mesmo endereço." + download,
     { key: chave, acoes });
 }
 

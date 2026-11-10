@@ -165,7 +165,9 @@ h2{font-size:clamp(28px,4.4vw,42px);margin:0 0 10px;line-height:1.1;letter-spaci
 .passos h3{margin:4px 0;font-size:19px}
 .passos p{margin:0;color:var(--suave);font-size:16px}
 
-.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.planos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+@media (min-width:821px) and (max-width:1050px){.planos{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1051px){.planos .plano{padding:24px 20px}.planos .preco{font-size:32px}.planos .preco span{white-space:nowrap}.planos .preco small{display:block;margin-top:2px}}
 .plano{position:relative;display:flex;flex-direction:column;background:var(--painel);border:1px solid var(--linha);border-radius:14px;padding:28px;transition:transform .2s,border-color .2s,box-shadow .2s}
 .plano:hover{transform:translateY(-5px);border-color:var(--roxo2)}
 .plano.destaque{border:2px solid var(--roxo);box-shadow:0 0 40px #8a35d93d}
@@ -307,8 +309,15 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
 
 <section id="planos"><div class="wrap">
   <h2>Planos</h2>
-  <p class="lead">Os três têm todas as funções. A diferença é só o tempo de uso.</p>
+  <p class="lead">Todos têm todas as funções. A diferença é só o tempo de uso.</p>
   <div class="planos">
+    <div class="plano">
+      <h3>1 dia</h3>
+      <div class="preco"><span id="preco1Dia">—</span> <small>/ dia</small></div>
+      <div class="mes">&nbsp;</div>
+      <p>Uso liberado por 24 horas a partir da ativação da key.</p>
+      <a class="btn vazio" id="comprar1Dia" href="#">Comprar 1 dia</a>
+    </div>
     <div class="plano">
       <h3>Mensal</h3>
       <div class="preco"><span id="precoMensal">—</span> <small>/ mês</small></div>
@@ -372,6 +381,7 @@ header nav a.ativo:after{background:#0e0f15!important;animation:none!important}
 <script>
 /* ===== EDITE AQUI: preços, links e contato ===== */
 const CONFIG = {
+  preco1Dia: "R$ 20,00",
   precoMensal: "R$ 79,99",       // ex.: "R$ 29,90"
   precoSemestral: "R$ 299,00",
   precoAnual:  "R$ 499,00",       // ex.: "R$ 249,00"
@@ -387,6 +397,7 @@ function ligar(id, url, rotulo){
   if(url){ el.href = url; }
   else { el.setAttribute("aria-disabled","true"); if(rotulo) el.textContent = rotulo; }
 }
+$("preco1Dia").textContent = CONFIG.preco1Dia || "Em breve";
 $("precoMensal").textContent = CONFIG.precoMensal || "Em breve";
 $("precoSemestral").textContent = CONFIG.precoSemestral || "Em breve";
 $("precoAnual").textContent  = CONFIG.precoAnual  || "Em breve";
@@ -394,7 +405,7 @@ $("precoAnual").textContent  = CONFIG.precoAnual  || "Em breve";
 /* ===== compra e entrega da key (servidor) ===== */
 const servidor = String(CONFIG.servidor || "").trim().replace(/\/+$/, "");
 const servidorOk = /^https:\/\/[^\s]+$/.test(servidor) && !servidor.includes("COLE_AQUI");
-const PLANO_DE = { comprarMensal: "mensal", comprarSemestral: "6meses", comprarAnual: "anual" };
+const PLANO_DE = { comprar1Dia: "1dia", comprarMensal: "mensal", comprarSemestral: "6meses", comprarAnual: "anual" };
 const ped = $("pedido"), pedTitulo = $("pedTitulo"), pedTexto = $("pedTexto"), pedKey = $("pedKey"), pedAcoes = $("pedAcoes");
 
 function painel(titulo, texto, opc){
